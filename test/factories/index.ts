@@ -40,12 +40,14 @@ export function adminFactory(rest = {}) {
 export function parties2Factory(rest = {}) {
   return {
                             participant_id: faker.datatype.number({}),
+              content: faker.datatype.string(255),
           ...rest,
   };
 }
 export function parties3Factory(rest = {}) {
   return {
                             parties2_id: faker.datatype.number({}),
+              content: faker.datatype.string(255),
           ...rest,
   };
 }

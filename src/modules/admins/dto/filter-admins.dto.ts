@@ -18,6 +18,17 @@ export class FilterAdminRequestDTO {
   @NumberFieldOptional({ int: true })
   pagination_limit?: number;
 }
+export class Parties3Parties2ParticipantPartyFilterAdminResponse {
+  content: string;
+}
+export class Parties2ParticipantPartyFilterAdminResponse {
+  content: string;
+  parties3s: Parties3Parties2ParticipantPartyFilterAdminResponse[];
+}
+export class ParticipantPartyFilterAdminResponse {
+  status: number;
+  parties2s: Parties2ParticipantPartyFilterAdminResponse[];
+}
 export class PartyFilterAdminResponse {
   id: number;
   created_at: Date;
@@ -31,6 +42,7 @@ export class PartyFilterAdminResponse {
   banner: StorageFile;
   min_age: number;
   admin_id: number;
+  participants: ParticipantPartyFilterAdminResponse[];
 }
 export class FilterAdminResponse {
   id: number;
@@ -68,6 +80,18 @@ export class FilterAdminResponseDTO {
         banner: party?.banner,
         min_age: party?.min_age,
         admin_id: party?.admin_id,
+        participants: party?.participants?.map((participant) => ({
+          ...participant,
+          status: participant?.status,
+          parties2s: participant?.parties2s?.map((parties2) => ({
+            ...parties2,
+            content: parties2?.content,
+            parties3s: parties2?.parties3s?.map((parties3) => ({
+              ...parties3,
+              content: parties3?.content,
+            })),
+          })),
+        })),
       })),
     }));
     this.total_pages = total_pages;

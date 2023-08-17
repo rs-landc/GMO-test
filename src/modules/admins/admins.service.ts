@@ -45,6 +45,12 @@ export class AdminService {
     const relations: QueryRelation[] = [
       { column: 'parties', alias: 'parties' },
       { column: 'parties.banner', alias: 'parties_banner' },
+      { column: 'parties.participants', alias: 'parties_participants' },
+      { column: 'parties_participants.parties2s', alias: 'parties_participants_parties2s' },
+      {
+        column: 'parties_participants_parties2s.parties3s',
+        alias: 'parties_participants_parties2s_parties3s',
+      },
     ];
 
     const pagination: QueryPagination = {
