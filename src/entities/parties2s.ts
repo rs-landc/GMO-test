@@ -28,6 +28,9 @@ export class Parties2 {
   @Column({ nullable: false, type: 'integer' })
   participant_id: number;
 
+  @Column({ nullable: true, type: 'text' })
+  content: string;
+
   @ManyToOne(() => Participant, (participant) => participant.parties2s, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'participant_id' })
   participant: Participant;

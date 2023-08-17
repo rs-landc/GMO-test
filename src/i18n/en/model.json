@@ -1,10 +1,12 @@
 {
   "model.parties2": "Parties2",
+  "attribute.parties2s.content": "Content",
   "attribute.parties2s.created_at": "Created at",
   "attribute.parties2s.id": "ID",
   "attribute.parties2s.participant_id": "Participant ID",
   "attribute.parties2s.updated_at": "Updated at",
   "model.parties3": "Parties3",
+  "attribute.parties3s.content": "Content",
   "attribute.parties3s.created_at": "Created at",
   "attribute.parties3s.id": "ID",
   "attribute.parties3s.parties2_id": "Parties2 ID",

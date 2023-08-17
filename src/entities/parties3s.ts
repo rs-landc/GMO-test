@@ -26,6 +26,9 @@ export class Parties3 {
   @Column({ nullable: false, type: 'integer' })
   parties2_id: number;
 
+  @Column({ nullable: true, type: 'text' })
+  content: string;
+
   @ManyToOne(() => Parties2, (parties2) => parties2.parties3s, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'parties2_id' })
   parties2: Parties2;
